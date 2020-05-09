@@ -27,15 +27,13 @@ jobs:
 
         git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 
-        git fetch github master
+        git fetch github code
 
-        git checkout -B master github/master
+        git checkout -B code github/code
 
         git reset upstream/master --hard
 
-        git reset github/master --soft
-
-        git restore .github
+        git reset github/code --soft
 
         git add .
 
@@ -43,7 +41,7 @@ jobs:
 
         git commit -a -m "New code" && COMMITTED="YES" || exit 0
 
-        git push github master
+        git push github code
 
         if [ $COMMITTED == "YES" ]; then
 
