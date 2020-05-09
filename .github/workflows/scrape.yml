@@ -35,6 +35,8 @@ jobs:
 
         git reset github/master --soft
 
+        git restore .github
+
         git add .
 
         COMMITTED="NO"
